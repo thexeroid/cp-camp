@@ -1,1 +1,0 @@
-{"name":"Local: main","url":"/Users/shivam/Documents/cp-camp-super/Modular Arithmetic/main.cpp","tests":[{"id":1747481486743,"input":"2\n(1 + 2 / 1) mod 3\n(2 * 3 - 8) mod 5","output":"0\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/shivam/Documents/cp-camp-super/Modular Arithmetic/main.cpp","group":"local","local":true}
