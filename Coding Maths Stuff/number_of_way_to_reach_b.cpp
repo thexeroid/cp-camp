@@ -1,3 +1,5 @@
+// Trick: Think of it as subsequence of (N + M) length where each character is D or R so, it's like there would be a total of N downwards and a total of R rightwards in all possible ways so, if you choose one way other way will be automatically filled so, C(D + R, D) or C(D + R, R) or C(N + M, N)
+
 #include <bits/stdc++.h>
 using namespace std;
 
