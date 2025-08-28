@@ -14,17 +14,7 @@ class BlackBox
 
     void rebalance()
     {
-        if (front.size() > back.size() + 1)
-        {
-            auto it = prev(front.end(), 1);
-            int it_val = *it;
-            front.erase(it);
-            frontSum -= it_val;
-            back.insert(it_val);
-            backSum += it_val;
-        }
-
-        if (front.size() < back.size())
+        if (front.size() + 1 < back.size())
         {
             auto it = back.begin();
             int it_val = *it;
@@ -33,30 +23,40 @@ class BlackBox
             front.insert(it_val);
             frontSum += it_val;
         }
+
+        if (front.size() > back.size())
+        {
+            auto it = prev(front.end(), 1);
+            int it_val = *it;
+            front.erase(it);
+            frontSum -= it_val;
+            back.insert(it_val);
+            backSum += it_val;
+        }
     }
 
     int getMedian()
     {
-        return *front.rbegin();
+        return *back.begin();
     }
 
 public:
     void insert(int num)
     {
-        if (front.empty())
-        {
-            front.insert(num);
-            frontSum += num;
-        }
-        else if (num <= *front.rbegin())
-        {
-            front.insert(num);
-            frontSum += num;
-        }
-        else
+        if (back.empty())
         {
             back.insert(num);
             backSum += num;
+        }
+        else if (num >= *back.begin())
+        {
+            back.insert(num);
+            backSum += num;
+        }
+        else
+        {
+            front.insert(num);
+            frontSum += num;
         }
 
         rebalance();
@@ -64,19 +64,19 @@ public:
 
     void remove(int num)
     {
-        auto front_it = front.find(num);
-        if (front_it != front.end())
+        auto back_it = back.find(num);
+        if (back_it != back.end())
         {
-            front.erase(front_it);
-            frontSum -= num;
+            back.erase(back_it);
+            backSum -= num;
         }
         else
         {
-            auto back_it = back.find(num);
-            if (back_it != back.end())
+            auto front_it = front.find(num);
+            if (front_it != front.end())
             {
-                back.erase(back_it);
-                backSum -= num;
+                front.erase(front_it);
+                frontSum -= num;
             }
         }
 
