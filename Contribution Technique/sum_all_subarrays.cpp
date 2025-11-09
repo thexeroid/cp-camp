@@ -18,6 +18,17 @@ void solve()
 
     for (int i = 0; i < N; i++)
         cin >> arr[i];
+
+    int ans = 0;
+    for (int i = 0; i < N; i++)
+    {
+        int left = (i + 1);
+        int right = (N - i);
+
+        ans += arr[i] * (left * right);
+    }
+
+    cout << ans << endl;
 }
 
 signed main()

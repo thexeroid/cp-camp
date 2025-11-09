@@ -48,3 +48,13 @@ public:
     }
 };
 ```
+
+Some more techniques were there like:
+
+1. no. of inverses in all subarray of an array. It was an O(N^2) solution where we iterated over all pairs and then just computed the contribution using bar method like stretch the left bar to start and stretch the right bar to the end. Count the possibilities
+
+2. sum of subsequences of an array - contribution of each element in all subsequences.
+   Changed POV.
+   Same here. Like, fix the element and do other combinations and all.
+   Contribution of an element becomes = el _ 2^(N - 1)
+   Total sum becomes = sigma(el _ 2^(N - 1))
