@@ -23,18 +23,9 @@ string get_rotation(string &S, int rotation_num)
 int get_operations_to_make_equal(string &A, string &B)
 {
     int N = A.size();
+    int pos = (A + A).find(B);
 
-    for (int i = 1; i <= N; i++)
-    {
-        string cr = get_rotation(A, i);
-
-        if (cr == B)
-        {
-            return i - 1;
-        }
-    }
-
-    return -1;
+    return pos;
 }
 
 string arr[50];

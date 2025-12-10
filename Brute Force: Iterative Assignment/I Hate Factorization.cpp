@@ -27,7 +27,7 @@ void solve()
     cin >> X;
 
     map<int, int> mp;
-    for (int num = -119; num <= 119; num++)
+    for (int num = -119; num <= 118; num++)
     {
         int num_pow_five = binpow(num, 5);
         mp[num_pow_five] = num;
